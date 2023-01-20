@@ -1,0 +1,22 @@
+Para instalar o FastAPi no Pycharm
+    pip install fastapi
+Vai tambem ser preciso do Servidor ASGI Server
+    pip install "uvicorn[standard]"
+
+- Para instalar o FastAPi pelo requiremenst
+    pip intall  -r requiremenst.txt
+
+- Para reproduzir a APi é preciso colocar no navegador
+    Documentos API interativos¶
+    Agora vá para http://localhost:8001/docs
+
+    Documentos API alternativos¶
+    E agora, vá para http://localhost:8001/redoc
+
+_ Vamos criar um novo roteador
+
+    - Vamos criar uma pasta com o nome:
+        contas_a_pagar_e_receber_router -> com outra
+            Router  -> e um arquivo chamado
+                 contas_a_pagar_e_receber_router.py
+
