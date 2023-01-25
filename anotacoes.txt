@@ -20,3 +20,58 @@ _ Vamos criar um novo roteador
             Router  -> e um arquivo chamado
                  contas_a_pagar_e_receber_router.py
 
+- Agora vamoa iniciar os teste da API
+    1. Vamos criar um novo diretorio chamdo (test);
+    2. Dentro desse diretorio vamos criar outro chamado
+        - contas_a_pagar_e_receber
+        - de dentro de contas_a_pagar_e_receber vamos criar outro chamado Routers
+            - e seu arquivo chamado -> test_contas_a_pagar_e_receber_router.py
+
+    3. Entre no arquivo -> test_contas_a_pagar_e_receber_router.py
+     e digite
+
+            from fastapi.testclient import TestClient
+            from Project.FastApiZeroAteDeploy.main import app
+
+            client = TestClient(app)
+
+            def test_deve_listar_contas_a_pagra_e_receber():
+            response = client.get('./contas-pagra-receber')
+
+            assert response.status.code == 200
+
+     4. Instale o pyteste para poder fazer os teste na aplicação
+
+           - pip install pytest
+           - pip freeze -> para pegar a versão do pytest e colocar no arquivo requirements.txt
+
+           - instale a versão pelo requirements.txt
+                pip install -r requirements.txt
+                - Caso dê algum erro 'ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt''
+                    digite ->> pip freeze > requirements.txt
+                    depois digite ->> pip instal -r requirements.txt
+
+     5. Agora vamos inicar o pytest no terminal
+
+        - No terminal digite -> pytest
+        - Veremos que deu um erro, pôs não está identado igual como o FastAPI Deixa o programa
+        - Para isso vamos executar no terminal
+            python -m pytest
+         _ vamos saber a aplicaçãio esta funcionando corretamente ou não
+            - caso não esteja veja qual o erro e tente concerta
+            - Me o erro foi que não tinha instalado o httpx antes de iniciar os teste
+            eu instalei assim ->
+
+                    pip install httpx
+
+                    'HTTPX é um cliente HTTP completo para Python 3,
+                        que fornece APIs sincronizadas e assíncronas e suporte para HTTP/1.1 e HTTP/2.'
+
+     6. Para Rodar o Teste com o Json é preciso ->
+
+            - criar um assert de json
+                assert response.json()[]
+                -  Ele vai da erro pq não vai mostra os parametros json, com isso você coloca
+                    print(response.json()) -> antes do assert response.json()[]
+
+                - Pega e rode o programa de teste,
